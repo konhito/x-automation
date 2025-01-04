@@ -1,0 +1,83 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icon128.plasmo.3c1ed2d2.png",
+         "16": "icon16.plasmo.6c567d50.png",
+         "32": "icon32.plasmo.76b92899.png",
+         "48": "icon48.plasmo.aced7582.png",
+         "64": "icon64.plasmo.8bb5e6e0.png"
+      },
+      "default_popup": "popup.html"
+   },
+   "author": "Xtensions",
+   "background": {
+      "service_worker": "static/background/index.js"
+   },
+   "content_scripts": [ {
+      "css": [ "tabs/pro.6c449416.css" ],
+      "js": [ "agent.2f71ea82.js" ],
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "css": [ "tabs/pro.6c449416.css" ],
+      "js": [ "xui.03f02ae4.js" ],
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ]
+   }, {
+      "css": [ "tabs/pro.6c449416.css" ],
+      "js": [ "antd-alerts.1335198b.js" ],
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "css": [ "tabs/pro.6c449416.css" ],
+      "js": [ "reply-button.cf1ae859.js" ],
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "css": [ "tabs/pro.6c449416.css" ],
+      "js": [ "debug.c13ce158.js" ],
+      "matches": [ "*://*.twitter.com/home", "*://*.x.com/home" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Fully autonomous AI agent for 𝕏 / Twitter. Takes into context full threads and replies.",
+   "externally_connectable": {
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ]
+   },
+   "host_permissions": [ "https://xtensions.pro/*", "*://*.twitter.com/*", "*://*.x.com/*" ],
+   "icons": {
+      "128": "icon128.plasmo.3c1ed2d2.png",
+      "16": "icon16.plasmo.6c567d50.png",
+      "32": "icon32.plasmo.76b92899.png",
+      "48": "icon48.plasmo.aced7582.png",
+      "64": "icon64.plasmo.8bb5e6e0.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAryAmIseHJ6DCIRYrA7s1gfl8/qJ0WT3c5ghZaV9GTINsxGge1fGpXs6T9De1gn7pxIzgAKDEdjZn9vTolx8CNz3MS41JYqg+F1AXZBYuxsTbM0zVWOf9xqUV+m86FvdRPW8LIJh7wAfDjDwHuALQAFDUt7ygGgINu4+5lKJKgtpDhVOrBaZDHJckg5nJaIeCqNjYPGv2R0ky0vgqyXkf5jNwxHvWbOZQVZbpUwky1tgTjYIoOUE7XuCt0z4uIrDTPxwmZ1KmEI6NboupelOsLhNSPOII2KaaXdG6zRBC92IL+qol9oU3bCLneN4CgacZR0VZBLRJgPbaGMZ0FgUHnQIDAQAB",
+   "manifest_version": 3,
+   "name": "Reply Ninja | AI replies, likes, follows for 𝕏 / Twitter",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options.html"
+   },
+   "permissions": [ "storage", "scripting", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.4",
+   "web_accessible_resources": [ {
+      "extension_ids": [ "pnfpeamclhnlpfjebknbbananbpakcml" ],
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "options.html", "tabs/pro.html" ]
+   }, {
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "resources": [ "agent.362b2425.css", "agent.93a5d608.png" ]
+   }, {
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "resources": [ "agent.362b2425.css", "xui.3db28fd8.png" ]
+   }, {
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "resources": [ "agent.362b2425.css", "agent.93a5d608.png", "tabs/pro.69fabfae.png" ]
+   }, {
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "resources": [ "agent.362b2425.css", "agent.93a5d608.png" ]
+   }, {
+      "matches": [ "*://*.twitter.com/*", "*://*.x.com/*" ],
+      "resources": [ "agent.362b2425.css", "agent.93a5d608.png" ]
+   } ]
+}
