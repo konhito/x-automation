@@ -2,18 +2,14 @@ import express from "express";
 import axios from "axios";
 import cors from "cors";
 
-// Initialize the express app
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON body
-app.use(express.json()); // Use express built-in JSON parser
+app.use(express.json());
 app.use(cors());
 
-// Gemini Pro API Key (replace with your actual API key)
 const GEMINI_API_KEY = "AIzaSyBr_41k6M7BThI3aeOruBE2kCCBjh24doU";
 
-// Function to generate a chill tech bro reply using Gemini Pro API
 const getChillReply = async (content) => {
   if (!content) {
     return { text: "No content provided" };
@@ -74,33 +70,25 @@ const getChillReply = async (content) => {
   }
 };
 
-// Endpoint to handle the payload
 app.post("/processTweet", async (req, res) => {
   try {
-    // Extract data from the request body
     const { tweetId, x_handle, x_username, tweets, replies } = req.body;
     console.log(tweetId, x_handle);
 
-    // Check if tweets and replies are provided
     if (!tweets || !replies) {
       return res.status(400).json({ error: "Missing tweets or replies data" });
     }
 
-    // Extract tweet text
     const tweetText = tweets[0]?.text || "";
 
     const tweet = tweetText + replies + x_username;
 
-    // Generate a chill tech bro reply
     const chillReply = await getChillReply(tweet);
-    // console.log(tweetText);
 
-    // Prepare the response with all the required data
     const responsePayload = {
       text: chillReply,
     };
 
-    // Send the response back
     res.status(200).json(responsePayload);
   } catch (error) {
     console.error("Error processing tweet:", error.message);
@@ -112,7 +100,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
